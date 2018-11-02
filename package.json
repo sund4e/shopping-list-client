@@ -7,15 +7,20 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --hot --mode development"
+    "start": "webpack-dev-server --hot --mode development",
+    "lint": "tslint -p tsconfig.json"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^1.0.1",
+    "prettier": "^1.14.3",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
     "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-react": "^3.6.0",
     "typescript": "^3.1.5",
+    "typings-for-css-modules-loader": "^1.7.0",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
