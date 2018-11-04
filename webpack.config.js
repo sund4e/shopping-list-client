@@ -1,28 +1,27 @@
 const path = require('path');
 const webpack = require('webpack');
+const port = 8080;
 
 module.exports = {
-  entry: './src/index.tsx',
-  output: {
-    filename: 'bundle.js',
-    path: __dirname + '/dist',
-    publicPath: '/dist/'
+  devServer: {
+    contentBase: path.join(__dirname, 'public/'),
+    hotOnly: true,
+    port: port,
+    publicPath: `http://localhost:${port}/dist/`
   },
   devtool: 'source-map',
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json']
-  },
+  entry: './src/index.tsx',
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
         exclude: /(node_modules)/,
-        loader: 'awesome-typescript-loader'
+        loader: 'awesome-typescript-loader',
+        test: /\.tsx?$/
       },
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
       {
-        test: /\.css$/,
         include: path.join(__dirname, 'src/components'),
+        test: /\.css$/,
         use: [
           'style-loader',
           {
@@ -36,11 +35,13 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    contentBase: path.join(__dirname, 'public/'),
-    port: 3000,
-    publicPath: 'http://localhost:3000/dist/',
-    hotOnly: true
+  output: {
+    filename: 'bundle.js',
+    path: __dirname + '/dist',
+    publicPath: '/dist/'
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [new webpack.HotModuleReplacementPlugin()],
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.json']
+  }
 };
