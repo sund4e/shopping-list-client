@@ -20,8 +20,8 @@ module.exports = {
       },
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
       {
-        include: path.join(__dirname, 'src/components'),
-        test: /\.css$/,
+        include: path.join(__dirname, 'src'),
+        test: /\.scss$/,
         use: [
           'style-loader',
           {
@@ -30,7 +30,8 @@ module.exports = {
               modules: true,
               namedExport: true
             }
-          }
+          },
+          'sass-loader'
         ]
       }
     ]

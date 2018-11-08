@@ -1,9 +1,8 @@
 import * as React from 'react';
-import * as styles from './App.css';
+import * as styles from './App.scss';
 
 const App = () => (
   <div className={styles.app}>
-    <h1> Hello there stranger!</h1>
   </div>
 );
 
