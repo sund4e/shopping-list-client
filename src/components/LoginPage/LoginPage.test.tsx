@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import App from './App';
+import LoginPage from './LoginPage';
 
 test('renders component', () => {
-  expect(shallow(<App />)).not.toBeNull();
+  expect(shallow(<LoginPage />)).not.toBeNull();
 });
