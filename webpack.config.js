@@ -7,6 +7,11 @@ module.exports = {
     contentBase: path.join(__dirname, 'public/'),
     hotOnly: true,
     port: port,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000'
+      }
+    },
     publicPath: `http://localhost:${port}/dist/`
   },
   devtool: 'source-map',
